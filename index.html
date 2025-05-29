@@ -205,6 +205,20 @@
                 font-size: 1.4em;
             }
         }
+
+        /* NUEVA REGLA PARA CENTRAR LA TARJETA 7 */
+        /* Esta regla se aplica cuando el ancho de la ventana gráfica es de al menos 1040px.
+           Esto corresponde aproximadamente a cuando el contenedor .teoria tiene suficiente
+           espacio para mostrar 3 columnas de tarjetas.
+           La regla :nth-child(7):last-child asegura que solo se aplique si hay exactamente
+           7 tarjetas y estamos seleccionando la séptima. */
+        @media (min-width: 1040px) { 
+            .teoria > .card:nth-child(7):last-child {
+                grid-column-start: 2; /* Mueve la tarjeta al inicio de la segunda columna del grid */
+            }
+        }
+        /* Fin de la nueva regla */
+
     </style>
 </head>
 <body>
@@ -214,7 +228,7 @@
 
         <div class="teoria">
             <div class="card">
-                <img src="https://media.licdn.com/dms/image/v2/C4E12AQHlMMjQuO0DTA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1603115255598?e=1753920000&v=beta&t=kFc7vkpBUOnMou404HjHbD0jCOMBWVBktB9P1kXwDW0">
+                <img src="https://media.licdn.com/dms/image/v2/C4E12AQHlMMjQuO0DTA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1603115255598?e=1753920000&v=beta&t=kFc7vkpBUOnMou404HjHbD0jCOMBWVBktB9P1kXwDW0" alt="[Imagen de evolución social]">
                 <div class="card-contenido">
                     <h3>1. La Evolución Social</h3>
                     <p><span class="destacado">Idea Central:</span> Las sociedades se transforman gradualmente, pasando de formas simples a complejas, buscando el "progreso".</p>
@@ -224,7 +238,7 @@
             </div>
 
             <div class="card">
-                <img src="https://www.portaloaca.com/wp-content/uploads/2015/03/sindicalismo_rev7.jpg">
+                <img src="https://www.portaloaca.com/wp-content/uploads/2015/03/sindicalismo_rev7.jpg" alt="[Imagen de lucha de clases]">
                 <div class="card-contenido">
                     <h3>2. El Motor Material: La Lucha de Clases</h3>
                     <p><span class="destacado">Pensador Clave:</span> Karl Marx.</p>
@@ -234,7 +248,7 @@
             </div>
 
             <div class="card">
-                 <img src="https://www.claseejecutiva.com.mx/wp-content/uploads/2020/01/Valores-y-creencias-ok-web-shu_1045991857-min-thegem-blog-timeline-large.jpg">
+                 <img src="https://www.claseejecutiva.com.mx/wp-content/uploads/2020/01/Valores-y-creencias-ok-web-shu_1045991857-min-thegem-blog-timeline-large.jpg" alt="[Imagen de ética y valores]">
                 <div class="card-contenido">
                     <h3>3. El Poder de las Ideas: Ética y Valores</h3>
                     <p><span class="destacado">Pensador Clave:</span> Max Weber.</p>
@@ -244,7 +258,7 @@
             </div>
 
             <div class="card">
-                <img src="https://visualmexico.com.mx/wp-content/uploads/2019/05/revolucion-industrial-600x459.jpg">
+                <img src="https://visualmexico.com.mx/wp-content/uploads/2019/05/revolucion-industrial-600x459.jpg" alt="[Imagen de modernización industrial]">
                 <div class="card-contenido">
                     <h3>4. La Modernización</h3>
                     <p><span class="destacado">Idea Central:</span> Transformación de sociedades tradicionales a industriales y desarrolladas.</p>
@@ -258,10 +272,10 @@
             </div>
 
             <div class="card">
-                <img src="https://www.cuales.es/wp-content/uploads/2023/09/conflicto-social.jpg">
+                <img src="https://www.cuales.es/wp-content/uploads/2023/09/conflicto-social.jpg" alt="[Imagen de conflicto social]">
                 <div class="card-contenido">
                     <h3>5. El Conflicto Social</h3>
-                    <p><span class="destacado">Idea Central:</span>
+                    <p><span class="destacado">Idea Central:</span> 
                     <p>El conflicto es inherente a la sociedad y puede ser un motor de cambio.</p>
                     <p><span class="destacado">Principales Tipos:</span></p>
                      <ul>
@@ -272,7 +286,7 @@
             </div>
 
             <div class="card">
-                 <img src="https://cnpm.mx/wp-content/uploads/2018/07/Mural_Diego_Rivera.jpg">
+                 <img src="https://cnpm.mx/wp-content/uploads/2018/07/Mural_Diego_Rivera.jpg" alt="[Imagen de revolución vs reforma]">
                 <div class="card-contenido">
                      <h3>6. Revolución vs. Reforma</h3>
                     <p><span class="destacado1">Conceptos Clave:
@@ -281,8 +295,7 @@
                 </div>
             </div>
             
-            <div class="card">
-                 <img src="https://alfaiot.com/wp-content/uploads/2023/12/Avances-portada.jpg">
+            <div class="card"> <img src="https://alfaiot.com/wp-content/uploads/2023/12/Avances-portada.jpg" alt="[Imagen de avances tecnológicos]">
                 <div class="card-contenido">
                     <h3>7. El Cambio en la Actualidad</h3>
                     <p><span class="destacado">Nuevos Impulsores:</span> Avances tecnológicos (internet, IA), globalización, nuevos movimientos sociales.</p>
