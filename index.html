@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teorías del Cambio Social - Cartel Interactivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto+Condensed:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-primary: 'Oswald', sans-serif;
+            --font-secondary: 'Roboto Condensed', sans-serif;
+            --font-text: 'Lato', sans-serif;
+
+            --color-bg: #919992; /* Un gris más claro y moderno */
+            --color-poster-bg: #b0b3b0;
+            --color-header-main: #2c3e50; /* Azul oscuro para el título principal */
+            --color-header-sub: #e74c3c; /* Rojo/Naranja para el subtítulo y acentos */
+            --color-border-accent: #3498db; /* Azul para bordes y acentos */
+            --color-text-dark: #34495e; /* Azul/gris oscuro para texto */
+            --color-text-light: #a2b2a3; /* Gris para texto secundario */
+            --color-card-bg: #f8f9fa; /* Fondo de tarjeta más sutil */
+            --color-card-shadow: rgba(0,0,0,0.1);
+            --color-reflexion-bg: #2c3e50; /* Fondo de reflexión oscuro */
+            --color-reflexion-text: #ecf0f1; /* Texto claro para reflexión */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-text);
+            background:  #a6b7a8; /* Más bold */
+            padding: 20px;
+            color: var(--color-text-dark);
+        }
+
+        .poster {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #76b48c;
+            padding: 40px; /* Más padding general */
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+            border-radius: 12px; /* Bordes más redondeados */
+        }
+
+        .main-title {
+            font-family: var(--font-primary);
+            text-align: center;
+            color: var(--color-header-main);
+            font-size: 3.8em; /* Un poco más grande */
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px; /* Ligero espaciado */
+        }
+
+        .subtitle {
+            font-family: var(--font-secondary);
+            text-align: center;
+            color:  #0a1a2f; /* Azul muy oscuro, casi negro */
+            font-size: 1.5em; /* Más claro y legible */
+            margin-bottom: 40px; /* Más espacio antes de las teorías */
+            font-weight: 400;
+        }
+
+        .section-title { /* Nuevo estilo para títulos de sección (h2) */
+            font-family: var(--font-primary);
+            color: var(--color-header-sub);
+            margin: 40px 0 20px;
+            border-bottom: 3px solid var(--color-border-accent);
+            padding-bottom: 12px;
+            font-size: 2.2em;
+            text-transform: uppercase;
+        }
+
+        .teoria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Más flexible */
+            gap: 30px; /* Espacio entre tarjetas */
+            margin: 30px 0;
+        }
+
+        .card { /* Reemplazando .teoria para la tarjeta individual */
+            background: var(--color-card-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+            overflow: hidden; /* Para que la imagen no se salga con border-radius */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición más suave */
+            display: flex;
+            flex-direction: column; /* Asegura que el contenido se apile verticalmente */
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.01); /* Efecto de elevación y ligero zoom */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .card-imagen {
+            width: 100%;
+            height: 220px; /* Altura fija para consistencia */
+            object-fit: cover;
+            border-bottom: 3px solid var(--color-border-accent); /* Acento de color */
+        }
+
+        .card-contenido {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* Espacio entre elementos de contenido */
+            flex-grow: 1; /* Para que el contenido ocupe el espacio restante */
+        }
+
+        .card-contenido h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.6em; /* Título de teoría más grande */
+            color: var(--color-header-main); /* Color consistente con título principal */
+            margin-bottom: 5px;
+        }
+
+        .card-contenido p {
+            font-size: 0.95em; /* Tamaño de texto ligeramente ajustado */
+            line-height: 1.6;
+            color: var(--color-text-dark);
+        }
+        
+        .card-contenido ul {
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: var(--color-text-dark);
+            list-style-position: inside;
+            padding-left: 5px;
+        }
+        .card-contenido ul li {
+            margin-bottom: 5px;
+        }
+
+        .destacado1 {
+            color: #0066cc; /* Azul un poco más oscuro */
+            font-weight: 700; /* Más bold */
+            font-family: var(--font-secondary);
+        }
+
+        .destacado {
+            color: var(--color-border-accent); /* Azul para destacar */
+            font-weight: 700; /* Más bold */
+            font-family: var(--font-secondary);
+        }
+
+        .reflexion {
+            background: var(--color-reflexion-bg);
+            color: var(--color-reflexion-text);
+            padding: 35px;
+            margin-top: 50px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .reflexion h3 {
+            font-family: var(--font-primary);
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .reflexion p {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) { /* Ajuste para tablets */
+            .main-title {
+                font-size: 3em;
+            }
+            .subtitle {
+                font-size: 1.3em;
+            }
+            .section-title {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 768px) {
+             .poster {
+                padding: 20px;
+            }
+            .main-title {
+                font-size: 2.5em;
+            }
+            .subtitle {
+                font-size: 1.2em;
+            }
+            .section-title {
+                font-size: 1.6em;
+            }
+            .teoria { /* En móviles, las tarjetas se apilan una sobre otra */
+                grid-template-columns: 1fr;
+            }
+            .card-imagen {
+                height: 180px; /* Reducir altura de imagen en móviles */
+            }
+            .card-contenido h3 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <h1 class="main-title">¿Qué impulsa el cambio en nuestras sociedades?</h1>
+        <p class="subtitle">Un Vistazo a las Teorías Sociológicas</p>
+
+        <div class="teoria">
+            <div class="card">
+                <img src="https://media.licdn.com/dms/image/v2/C4E12AQHlMMjQuO0DTA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1603115255598?e=1753920000&v=beta&t=kFc7vkpBUOnMou404HjHbD0jCOMBWVBktB9P1kXwDW0">
+                <div class="card-contenido">
+                    <h3>1. La Evolución Social</h3>
+                    <p><span class="destacado">Idea Central:</span> Las sociedades se transforman gradualmente, pasando de formas simples a complejas, buscando el "progreso".</p>
+                    <p><span class="destacado">Principales Pensadores:</span> Auguste Comte, Herbert Spencer.</p>
+                    <p>Como organismos, nacen, crecen y se desarrollan hacia etapas "superiores".</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://www.portaloaca.com/wp-content/uploads/2015/03/sindicalismo_rev7.jpg">
+                <div class="card-contenido">
+                    <h3>2. El Motor Material: La Lucha de Clases</h3>
+                    <p><span class="destacado">Pensador Clave:</span> Karl Marx.</p>
+                    <p>El cambio surge de la contradicción entre cómo producimos (fuerzas productivas) y quién controla esa producción (relaciones de producción).</p>
+                    <p><span class="destacado">Concepto General:</span> La historia es una lucha entre clases sociales (ej. burguesía vs. proletariado).</p>
+                </div>
+            </div>
+
+            <div class="card">
+                 <img src="https://www.claseejecutiva.com.mx/wp-content/uploads/2020/01/Valores-y-creencias-ok-web-shu_1045991857-min-thegem-blog-timeline-large.jpg">
+                <div class="card-contenido">
+                    <h3>3. El Poder de las Ideas: Ética y Valores</h3>
+                    <p><span class="destacado">Pensador Clave:</span> Max Weber.</p>
+                    <p>Los valores y creencias (ej. la "ética protestante") pueden impulsar grandes cambios económicos y sociales.</p>
+                    <p>El "espíritu del capitalismo" se forma también por una mentalidad y conducta específicas.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://visualmexico.com.mx/wp-content/uploads/2019/05/revolucion-industrial-600x459.jpg">
+                <div class="card-contenido">
+                    <h3>4. La Modernización</h3>
+                    <p><span class="destacado">Idea Central:</span> Transformación de sociedades tradicionales a industriales y desarrolladas.</p>
+                    <p><span class="destacado">Principales Tipos:</span></p>
+                    <ul>
+                        <li>Industrialización: Maquinaria, producción en masa.</li>
+                        <li>Urbanización: Crecimiento de las ciudades.</li>
+                        <li>Democratización: Mayor participación política.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://www.cuales.es/wp-content/uploads/2023/09/conflicto-social.jpg">
+                <div class="card-contenido">
+                    <h3>5. El Conflicto Social</h3>
+                    <p><span class="destacado">Idea Central:</span>
+                    <p>El conflicto es inherente a la sociedad y puede ser un motor de cambio.</p>
+                    <p><span class="destacado">Principales Tipos:</span></p>
+                     <ul>
+                        <li><strong>Funcionalista:</strong> Puede llevar a la integración y ajuste del sistema.</li>
+                        <li><strong>Marxista:</strong> Es fundamental para la transformación revolucionaria.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                 <img src="https://cnpm.mx/wp-content/uploads/2018/07/Mural_Diego_Rivera.jpg">
+                <div class="card-contenido">
+                     <h3>6. Revolución vs. Reforma</h3>
+                    <p><span class="destacado1">Conceptos Clave:
+                    <p><span class="destacado">Revolución:</span> Cambio rápido, fundamental y a menudo violento. Busca derribar el orden existente.</p>
+                    <p><span class="destacado">Reforma:</span> Cambio gradual, desde dentro del sistema. Busca adecuar el orden para preservarlo.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                 <img src="https://alfaiot.com/wp-content/uploads/2023/12/Avances-portada.jpg">
+                <div class="card-contenido">
+                    <h3>7. El Cambio en la Actualidad</h3>
+                    <p><span class="destacado">Nuevos Impulsores:</span> Avances tecnológicos (internet, IA), globalización, nuevos movimientos sociales.</p>
+                    <p><span class="destacado">Desafíos:</span> Desigualdad, crisis climática, transformaciones laborales.</p>
+                    <p>¿Cómo estos factores configuran las sociedades del siglo XXI?</p>
+                </div>
+            </div>
+        </div> <div class="reflexion">
+            <h3>Para Reflexionar</h3>
+            <p>La sociedad está en constante transformación. Entender estas teorías nos ayuda a analizar nuestro presente y a participar conscientemente en la construcción del futuro.</p>
+            <p><strong>¿Qué factores crees que están impulsando el cambio más significativo en tu comunidad o en el mundo hoy en día?</strong></p>
+        </div>
+    </div>
+</body>
+</html>
